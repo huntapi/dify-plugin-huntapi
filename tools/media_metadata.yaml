@@ -1,0 +1,22 @@
+identity:
+  name: media_metadata
+  author: huntapi
+  label:
+    en_US: Media Metadata
+description:
+  human:
+    en_US: 'Read the metadata of a public video without downloading it: title, channel, duration, views, likes, upload date and thumbnail. 1 credit.'
+  llm: 'Returns the metadata of a public video or audio URL (YouTube, TikTok, Instagram, Facebook, Vimeo, X, Twitch, Reddit and more) without downloading it: title, description, channel, duration, view and like counts, upload date, thumbnail, size and whether it is live.'
+parameters:
+- name: url
+  type: string
+  required: true
+  label:
+    en_US: Video URL
+  human_description:
+    en_US: The public video or audio URL.
+  llm_description: The public video or audio URL.
+  form: llm
+extra:
+  python:
+    source: tools/media_metadata.py

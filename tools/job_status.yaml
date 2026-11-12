@@ -1,0 +1,22 @@
+identity:
+  name: job_status
+  author: huntapi
+  label:
+    en_US: Job Status
+description:
+  human:
+    en_US: Get the status, progress and download link of a HuntAPI download job. Free.
+  llm: Returns the status (Queued, Running, CompletedJob, Error), progress (0-100) and, when complete, the download link in result.response of a HuntAPI download job.
+parameters:
+- name: job_id
+  type: string
+  required: true
+  label:
+    en_US: Job ID
+  human_description:
+    en_US: The job id returned by Download Video or Download Audio.
+  llm_description: The job id returned by Download Video or Download Audio.
+  form: llm
+extra:
+  python:
+    source: tools/job_status.py

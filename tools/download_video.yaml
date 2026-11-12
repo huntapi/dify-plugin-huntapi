@@ -1,0 +1,66 @@
+identity:
+  name: download_video
+  author: huntapi
+  label:
+    en_US: Download Video
+description:
+  human:
+    en_US: Download a public video in the quality and format you choose and get a download link. 1 credit.
+  llm: Downloads a public video (YouTube, TikTok, Instagram, Facebook, Vimeo, X, Twitch, Reddit and more) and returns a download link. Waits up to 140 seconds; a longer job returns its job_id for Job Status.
+parameters:
+- name: url
+  type: string
+  required: true
+  label:
+    en_US: Video URL
+  human_description:
+    en_US: The public video URL.
+  llm_description: The public video URL.
+  form: llm
+- name: video_quality
+  type: select
+  required: false
+  label:
+    en_US: Quality
+  default: best
+  options:
+  - value: best
+    label:
+      en_US: Best
+  - value: 1080p
+    label:
+      en_US: 1080p
+  - value: 720p
+    label:
+      en_US: 720p
+  - value: 480p
+    label:
+      en_US: 480p
+  - value: 360p
+    label:
+      en_US: 360p
+  human_description:
+    en_US: Video quality. The default is the best available.
+  form: form
+- name: video_format
+  type: select
+  required: false
+  label:
+    en_US: Format
+  default: mp4
+  options:
+  - value: mp4
+    label:
+      en_US: MP4
+  - value: webm
+    label:
+      en_US: WebM
+  - value: mkv
+    label:
+      en_US: MKV
+  human_description:
+    en_US: File format. The default is MP4.
+  form: form
+extra:
+  python:
+    source: tools/download_video.py

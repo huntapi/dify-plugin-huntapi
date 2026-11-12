@@ -1,0 +1,63 @@
+identity:
+  name: download_audio
+  author: huntapi
+  label:
+    en_US: Download Audio
+description:
+  human:
+    en_US: Extract the audio of a public video or audio link as MP3, M4A or WAV and get a download link. 1 credit.
+  llm: Extracts the audio track of a public video or audio URL (a podcast, a talk, a song) and returns a download link. Waits up to 140 seconds; a longer job returns its job_id for Job Status.
+parameters:
+- name: url
+  type: string
+  required: true
+  label:
+    en_US: URL
+  human_description:
+    en_US: The public video or audio URL.
+  llm_description: The public video or audio URL.
+  form: llm
+- name: audio_format
+  type: select
+  required: false
+  label:
+    en_US: Format
+  default: mp3
+  options:
+  - value: mp3
+    label:
+      en_US: MP3
+  - value: m4a
+    label:
+      en_US: M4A
+  - value: wav
+    label:
+      en_US: WAV
+  human_description:
+    en_US: File format. The default is MP3.
+  form: form
+- name: audio_quality
+  type: select
+  required: false
+  label:
+    en_US: Quality
+  default: best
+  options:
+  - value: best
+    label:
+      en_US: Best
+  - value: 320kbps
+    label:
+      en_US: 320 kbps
+  - value: 256kbps
+    label:
+      en_US: 256 kbps
+  - value: 128kbps
+    label:
+      en_US: 128 kbps
+  human_description:
+    en_US: Audio quality. The default is the best available.
+  form: form
+extra:
+  python:
+    source: tools/download_audio.py
